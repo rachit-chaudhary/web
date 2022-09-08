@@ -27,7 +27,11 @@ app.get('/', (req, res) => {
 app.get('/about.ejs', (req, res) => {
     res.render('about', {
         title: 'MPRÉS | About',
-        message: 'This is about.ejs'
+        message: 'This is about.ejs',
+        heading: 'contacting mprés',
+        address: 'C-14, Sector-6, Noida, Uttar Pradesh - 201301',
+        email: 'inquiry@mpres.co.in',
+        phone: '+0120 428 6464'
     })
 })
 
