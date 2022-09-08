@@ -43,7 +43,10 @@ app.get('/product.ejs', (req, res) => {
 app.get('/contact.ejs', (req, res) => {
     res.render('contact', {
         title: 'MPRÉS | Contact',
-        message: 'This is contact.ejs'
+        heading: 'contacting mprés',
+        address: 'C-14, Sector-6, Noida, Uttar Pradesh - 201301',
+        email: 'inquiry@mpres.co.in',
+        phone: '+0120 428 6464'
     })
 })
 // listen on port 8080
