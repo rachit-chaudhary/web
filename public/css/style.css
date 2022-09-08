@@ -1,0 +1,50 @@
+h1{
+    font-family: 'Bebas Neue', cursive;
+}
+p,a{
+    font-family: 'Roboto', sans-serif;
+}
+
+/* header */
+header{
+    background-color: #2b2b2b;
+    padding: 15px 0px;
+}
+.site-logo .logo-img{
+    width: 75px;
+}
+ul{
+    width: 30%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+}
+header ul li a.nav-link{
+    color: #fff;
+    font-size: 15px;
+    font-weight: 100;
+}
+header ul li a.nav-link:visited{
+    color: #fff;
+}
+header ul li a.nav-link:hover{
+    color: #c6c6c6;
+}
+.site-nav-bar{
+    width: 80%;
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contact-btn{
+    background-color: #0066cc;
+    border-radius: 25px;
+    padding: 5px 12px 7px 12px;
+}
+.contact-btn a{
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
