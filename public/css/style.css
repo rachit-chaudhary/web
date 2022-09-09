@@ -66,8 +66,8 @@ header ul li a.nav-link:hover{
     background-color: grey;
 }
 .reach-us-banner img{
-    width: 75%;
-    margin: 0px autos;
+    width: 100%;
+    margin: 0px auto;
 }
 /*about-body*/
 .banner-img img{
@@ -108,4 +108,13 @@ footer {
 
 .details-box .address p a{
     width: 25px;
+}
+.bottom-footer{
+    display: flex;
+    justify-content: space-between;
+}
+.bottom-footer .bottom-footer-links{
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
 }
