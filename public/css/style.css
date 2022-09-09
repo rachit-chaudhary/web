@@ -171,6 +171,13 @@ header ul li a.nav-link:hover{
 .product-list ul li{
     list-style-type: none;
 }
+.product-list ul li img{
+    width: 150px;
+}
+model-viewer{
+    width: 800px;
+    height: 900px;
+}
 /*contact body*/
 .details-box .address p a{
     width: 25px;

@@ -46,7 +46,8 @@ app.get('/product.ejs', async (req, res) => {
 })
 
 //route for contact
-app.get('/contact.ejs', (req, res) => {
+app.get('/contact.ejs', async (req, res) => {
+    const allProducts = await db.collection("products").find().toArray()
     res.render('contact', {
         title: 'MPRÉS | Contact',
         heading: 'contacting mprés',
