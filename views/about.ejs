@@ -20,9 +20,62 @@
     <header>
       <%- include('templates/header') %>
     </header>
-    <h1>
-        This is <%= message %>
-    </h1>
+    <div class="container">
+        <!--about-banner-->
+        <div class="about-banner">
+            <div class="banner-text">
+                <h2>power of mprés put to work</h2>
+            </div>
+            <div class="banner-img">
+                <img src="img/power-of-mprés-put-to-work-banner.png" alt="power of mprés put to work">
+            </div>
+        </div>
+
+        <!--about-mpres-->
+        <div class="about-para">
+            <h2>about <span>mprés</span></h2>
+            <p>
+                Mprés is a one stop destination for all your hair care needs. From professional range to mini range - we have it all. With Mprés, you don't have to worry about your styling needs - you can achieve a variety of hair styles. They are highly efficient to style your hair with maintaining optimum temperature, precise styling and comfortable grip.
+            </p>
+        </div>
+        <hr>
+
+        <div class="certificates">
+            <h2>certificates</h2>
+            <div class="certificates-img">
+                <img class="iecee" src="img/iecee.png" alt="iecee-certificate-images">
+                <img class="cb" src="img/cb.png" alt="cb-certificate-images">
+            </div>
+        </div>
+        <hr>
+
+        <div class="manufacturing-facility">
+            <h2>manufacturing facility</h2>
+            <div class="manufacturing-unit-img">
+                <img src="img/molding-unit.png" alt="mprés-manufacturing-facility">
+            </div>
+        </div>
+        <hr>
+        
+        <div class="col-lg-6 col-md-6 col-xs-12">
+            <div class="details-box">
+                <h1><%= heading %></h1>
+                <div class="row">
+                    <div class="address">
+                        <h5>Registered Office</h5>
+                        <p><a href="#"><%= address %></a></p>
+                    </div>
+                    <div class="details">
+                        <h5>Contact Details</h5>
+                        <p><%= phone %></p>
+                        <p><a href="#"><%= email %></a></p>
+                    </div>
+                </div>
+                <button>Reach us</button>
+            </div>
+        </div>
+
+    </div>
     
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>

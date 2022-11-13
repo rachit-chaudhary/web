@@ -1,4 +1,5 @@
-h1{
+h2{
+    font-size: 3rem;
     font-family: 'Bebas Neue', cursive;
 }
 p,a{
@@ -31,7 +32,7 @@ header ul li a.nav-link:hover{
     color: #c6c6c6;
 }
 .site-nav-bar{
-    width: 80%;
+    width: 100%;
     margin: 0px auto;
     display: flex;
     align-items: center;
@@ -47,4 +48,228 @@ header ul li a.nav-link:hover{
     color: #fff;
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
+}
+/*home-body*/
+.site-banner-first img{
+    width: 100%;
+}
+.site-banner-second{
+    position: relative;
+}
+.site-banner-second img{
+    width: 100%;
+}
+.second-banner-text{
+    position: absolute;
+    bottom: 100px;
+    left: 216px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* right: 0px; */
+    /* top: 0px;*/
+}
+.banner-btn{
+    display: flex;
+}
+.second-banner-text h2{
+    font-size: 3rem;
+    text-align: center;
+}
+.second-banner-text p{
+    margin: 15px 0px;
+    color: #666666;
+    font-size: 18px;
+    text-align: center;
+}
+.product-section h2,
+.product-section p,
+.product-section a{
+    text-align: center;
+}
+.product-section h2{
+    margin: 0px;
+    font-size: 3rem;
+}
+.product-section p{
+    margin: 15px 0px;
+    color: #666666;
+    font-style: italic;
+}
+.mini-range{
+    background-color: #f9f9f9;
+}
+.professional-range{
+    background-color: #f9f9f9;
+}
+.our-story{
+    width: 50%;
+    text-align: center;
+    margin: 0px auto;
+    line-height: 35px;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+.our-story h2{
+    font-size: 3rem;
+    font-family: 'Bebas Neue', cursive;
+}
+.reach-us-banner img{
+    width: 100%;
+    margin: 0px auto;
+}
+.reach-us-banner{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+.reach-us-banner-text{
+    position: absolute;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: inherit;
+    height: inherit;
+    color: #ffffff;
+}
+.reach-us-banner-text h2{
+    font-size: 3rem;
+}
+/*about-body*/
+.banner-img img{
+    width: 60%;
+    display: flex;
+    margin: 0px auto;
+}
+.certificates-img{
+    width: 40%;
+    display: flex;
+    margin: 0px auto;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.certificates-img img{
+    width: 35%;
+    display: flex;
+}
+.certificates-img .cb{
+    width: 25%;
+}
+.manufacturing-facility img{
+    width: 60%;
+    display: flex;
+    margin: 0px auto;
+}
+/*product body*/
+.product-list ul{
+    display: flex;
+    flex-direction: column;
+}
+.product-list ul li{
+    list-style-type: none;
+}
+.product-list ul li img{
+    width: 150px;
+}
+model-viewer{
+    width: 800px;
+    height: 900px;
+}
+/*contact body*/
+.details-box .address p a{
+    width: 25px;
+}
+/*footer*/
+footer {
+    background-color: #f9f9f9;
+    padding: 0px 15px;
+}
+.footer-logo img{
+    width: 40%;
+    display: flex;
+    margin: 0px auto;
+    justify-content: space-evenly;
+}
+.footer-items{
+    padding: 15px 0px;
+    display: flex;
+    align-items: center;
+}
+.footer-links{
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+    margin: 0px auto;
+    padding: 0px;
+}
+.footer-links li,
+.bottom-footer ul li{
+    list-style-type: none;
+}
+.footer-links li a,
+.bottom-footer ul li a{
+    text-decoration: none;
+    color: #666666;
+}
+.footer-links li a:hover,
+.bottom-footer ul li a:hover{
+    border-bottom: 1px solid #666666;
+}
+.reach-me-text{
+    margin: 0px;
+    font-weight: 400;
+}
+.reach-me-text::after{
+    margin-left: 10px;
+    content: "(business emails)";
+    font-size: 12px;
+    color: #666666;
+}
+.email-input{
+    position: relative;
+}
+.footer-items input{
+    width: 100%;
+    border: none;
+    background: #e6e6e6;
+    padding: 10px 25px;
+    color: #333333;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 15px;
+}
+.footer-items input:focus {
+    outline: none;
+}
+.email-input button{
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    background: none;
+    border: none;
+}
+.bottom-footer{
+    padding: 15px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+.bottom-footer .bottom-footer-links{
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+}
+.bottom-footer-links .seperator{
+    font-weight: 100;
+}.bottom-footer p,
+.bottom-footer ul{
+    margin: 0px;
+}
+.bottom-footer p,
+.bottom-footer ul li,
+.bottom-footer ul li a{
+    font-size: 12px;
 }
