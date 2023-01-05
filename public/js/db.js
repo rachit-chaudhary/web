@@ -1,1 +1,0 @@
-//alert("db js connected")
