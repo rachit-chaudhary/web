@@ -25,14 +25,13 @@ function passwordProtected(req, res, next) {
     if(req.headers.authorization == "Basic YWRtaW46YWRtaW4=") {
         next()
     } else {
-        console.log(req.headers.authorization)
-        res.status(401).send("Wrong Password")
+        res.status(401).send("Authentication Required")
     }
 }
 
 //route for admin
-app.get('/admin', (req, res) => {
-    res.render("admin")
+app.get('/admin', passwordProtected, async (req, res) => {
+    res.render('admin')
 })
 
 //route for index
@@ -64,7 +63,6 @@ app.get('/product', async (req, res) => {
 
 //route for contact
 app.get('/contact', async (req, res) => {
-    const allProducts = await db.collection("products").find().toArray()
     res.render('contact', {
         title: 'MPRÉS | Contact',
         heading: 'contacting mprés',
