@@ -8,12 +8,47 @@
   <header>
     <%- include('templates/header') %>
   </header>  
-  <h1>
-    <%= message %>
-  </h1>
-  <div>
-    this div is for products
+  <h2>
+    products
+  </h2>
+  <div class="product-list">
+    <ul>
+      <% allProducts.forEach(function(product) { %>
+        <li><img src="<%= product.image %>"/> <%= product.name %> - <%= product.model %></li>
+      <% }) %>
+    </ul>
   </div>
+  <!--  <div class="product-threed">
+    <model-viewer alt="Mini Curler" src="threeDModel/mini-curler.glb" width="250px" ar ar-modes="webxr scene-viewer quick-look" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+  </div>-->
+  <ar-button
+    src="https://github.com/leoncvlt/ar-button/raw/master/assets/Astronaut.glb"
+    ios-src="https://github.com/leoncvlt/ar-button/raw/master/assets/Astronaut.usdz"
+    link="https://www.nasa.gov/"
+    title="A 3D model of an astronaut">
+      See in Augmented Reality 
+  </ar-button>
+
+  <form action="/">
+    <label for="name">Name</label>
+    <input type="text" placeholder="Your Name">
+    <label for="email">Email</label>
+    <input type="email">
+    <label for="products">Select the product:</label>
+    <select name="products" id="products">
+      <% allProducts.forEach(function(product) { %>
+        <option value="<%= product.name %>"><%= product.model %> - <%= product.name %></option>
+      <% }) %>
+    </select>
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
+
+
+  <!--Importing AR Button-->
+  <script type="module" src="https://unpkg.com/@leoncvlt/ar-button"></script>
+  <!-- Importing Modelviewer -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   <script src="js/script.js"></script>
