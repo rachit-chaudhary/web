@@ -50,6 +50,13 @@ header ul li a.nav-link:hover{
     font-family: 'Roboto', sans-serif;
 }
 /*home-body*/
+#app{
+    width: 80%;
+    margin: 0px auto;
+    font-family: 'Bebas Neue';
+    display: flex;
+    justify-content: center;
+}
 .site-banner-first img{
     width: 100%;
 }
