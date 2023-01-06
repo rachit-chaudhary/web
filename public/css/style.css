@@ -53,7 +53,6 @@ header ul li a.nav-link:hover{
 #app{
     width: 80%;
     margin: 0px auto;
-    font-size: 3rem;
     font-family: 'Bebas Neue';
     display: flex;
     justify-content: center;

@@ -19,8 +19,8 @@ const typicalReact = {
 const clientConfig = {
   entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, 'public'),
-    filename: 'js/main.js',
+    path: path.resolve(__dirname, 'public/js'),
+    filename: 'main.js',
   },
   mode: "development",
   module: typicalReact
