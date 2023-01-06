@@ -7,10 +7,19 @@ const app = express()
 const multer = require('multer')
 const upload = multer()
 const sanitizeHTML = require('sanitize-html')
+const fse = require('fs-extra')
+const sharp = require('sharp')
 const port = process.env.PORT || 8080
 
 let db
 
+const React = require('react')
+const ReactDOMServer = require('react-dom/server')
+const ProductCard = require("./src/components/ProductCard").default
+
+
+//when the app first launches, make sure the public/uploaded-photos exist
+fse.ensureDirSync(path.join("public", "uploaded-photos"))
 
 //static files
 app.use(express.static('public'))
@@ -56,9 +65,17 @@ app.get('/about', (req, res) => {
 //route for product 
 app.get('/product', async (req, res) => {
     const allProducts = await db.collection("products").find().toArray()
+    const generatedHTML = ReactDOMServer.renderToString(
+        <div className="container">
+            <div className='animal-grid mb-3'>
+                {allProducts.map(product => <ProductCard key={product._id} name={product.name} model={product.model} photo={product.photo} id={product._id} readyOnly={true} />)}
+            </div>
+            <p><a href='/admin'>Manage Listing</a></p>
+        </div>
+    )
     res.render('product', {
         title: 'MPRÉS | Products',
-        allProducts
+        generatedHTML
     })
 })
 
@@ -89,11 +106,44 @@ app.get("/api/products", async (req, res) => {
     res.json(allProducts)
 })
 
-app.post("/create-product", upload.single("photo"), ourCleanup, async(req, res) => {
+app.post("/create-product", upload.single("photo"), ourCleanup, async (req, res) => {
+    if (req.file) {
+        const photofilename = `${Date.now()}.jpg`
+        await sharp(req.file.buffer).resize(844, 456).jpeg({quality: 60}).toFile(path.join("public", "uploaded-photos", photofilename))
+        req.cleanData.photo = photofilename
+    }
     console.log(req.body)
     const info = await db.collection("products").insertOne(req.cleanData)
-    const newProduct = await db.collection("products").findOne({_id: new ObjectId(info.instertedId)})
+    const newProduct = await db.collection("products").findOne({_id: new ObjectId(info.insertedId)})
     res.send(newProduct)
+})
+
+app.delete("/product/:id",async (req, res) => {
+    if(typeof req.params.id != "string") req.params.id = ""
+    const doc = await db.collection("products").findOne({_id: new ObjectId(req.params.id)})
+    if(doc.photo) {
+        fse.remove(path.join("public", "uploaded-photos", doc.photo))
+    }
+    db.collection("products").deleteOne({_id: new ObjectId(req.params.id)})
+    res.send("successfully delete")
+})
+
+app.post("/update-product", upload.single("photo"), ourCleanup, async (req, res) => {
+    if (req.file) {
+        // if they are upload a new photo
+        const photofilename = `${Date.now()}.jpg`
+        await sharp(req.file.buffer).resize(844, 456).jpeg({quality: 60}).toFile(path.join("public", "uploaded-photos", photofilename))
+        req.cleanData.photo = photofilename
+        const info = await db.collection("products").findOneAndUpdate({_id: new ObjectId(req.body._id)}, {$set: req.cleanData})
+        if (info.value.photo) {
+            fse.remove(path.join("public", "uploaded-photos", info.value.photo))
+        }
+        res.send(photofilename)
+    } else {
+        // if they are not upload a new photo
+        db.collection("products").findOneAndUpdate({_id: new ObjectId(req.body._id)}, {$set: req.cleanData})
+        res.send(false)
+    }
 })
 
 function ourCleanup(req, res, next) {
